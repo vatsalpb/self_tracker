@@ -13,7 +13,7 @@ class TimerScreen extends StatefulWidget {
 class AppStateKeeper extends State<TimerScreen> {
   final barColor = Colors.redAccent;
   final bgColor = Colors.white;
-
+  String time = "25:00";
   int _currentTime = 0;
   int timePassedIn = 1500;
   CountdownTimer countDownTimer;
@@ -22,7 +22,7 @@ class AppStateKeeper extends State<TimerScreen> {
     return Scaffold(
       body: Center(
         child: Text(
-          '$_currentTime',
+          '$time',
           style: TextStyle(fontSize: 100, color: barColor),
         ),
       ),
@@ -30,7 +30,7 @@ class AppStateKeeper extends State<TimerScreen> {
         children: <Widget>[
           Align(
               alignment: Alignment.bottomCenter,
-              child: timedFloatingActionButton(barColor, timePassedIn, 'PLAY')),
+              child: timedFloatingActionButton(barColor, timePassedIn, 'WORK')),
         ],
       ),
       backgroundColor: bgColor,
@@ -61,6 +61,15 @@ class AppStateKeeper extends State<TimerScreen> {
     sub.onData((duration) {
       setState(() {
         _currentTime = _start - duration.elapsed.inSeconds;
+        String minute = (_currentTime ~/ 60).toString();
+        String seconds = (_currentTime % 60).toString();
+        if (minute.length == 1) {
+          minute = "0" + minute;
+        }
+        if (seconds.length == 1) {
+          seconds = "0" + seconds;
+        }
+        time = minute + ":" + seconds;
       });
     });
 
@@ -102,6 +111,15 @@ class AppStateKeeper extends State<TimerScreen> {
     // after the SecondScreen result comes back update the Text widget with it
     setState(() {
       timePassedIn = result;
+      String minute = (timePassedIn ~/ 60).toString();
+      String seconds = (timePassedIn % 60).toString();
+      if (minute.length == 1) {
+        minute = "0" + minute;
+      }
+      if (seconds.length == 1) {
+        seconds = "0" + seconds;
+      }
+      time = minute + ":" + seconds;
     });
   }
 }

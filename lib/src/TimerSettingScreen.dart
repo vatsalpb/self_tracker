@@ -15,6 +15,7 @@ class TimerSettingState extends State<TimerSettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.redAccent,
         title: Text("Second Route"),
         leading: BackButton(
           onPressed: () => Navigator.pop(context, seconds),
