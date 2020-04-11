@@ -35,3 +35,17 @@ lib/generated_plugin_registrant.dart
 
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
+*.bin
+*.lock
+android/.gradle/5.6.2/gc.properties
+android/.gradle/buildOutputCleanup/cache.properties
+android/.gradle/vcs-1/gc.properties
+android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+android/gradle/wrapper/gradle-wrapper.jar
+android/gradlew
+android/gradlew.bat
+android/local.properties
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/Generated.xcconfig
+ios/Runner/GeneratedPluginRegistrant.h
+ios/Runner/GeneratedPluginRegistrant.m
